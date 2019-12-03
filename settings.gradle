@@ -1,0 +1,4 @@
+rootProject.name = 'JW_201802104035_G'
+include 'JW_201802104035_31'
+include 'JW_201802104035_32'
+

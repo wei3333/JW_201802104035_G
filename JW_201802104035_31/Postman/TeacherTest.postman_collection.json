@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "52662046-ea63-4f37-b617-e6144579fb42",
+		"name": "TeacherTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET Teacher findAll",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "416f1991-06bb-49b5-9836-3685e6014796",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"苏同\");",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"王方\");",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"刘霞\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/teacher.ctl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teacher.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Teacher find",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb4ae8ab-a7e9-4252-8900-ba4c884d62bc",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"苏同\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/teacher.ctl?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teacher.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Teacher add",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "925896de-27d2-4f25-970f-3d512f48d327",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"增加成功？\"] = jsonData.message ===\"增加成功\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"degree\": {\r\n            \"description\": \"博士\",\r\n            \"id\": 490,\r\n            \"no\": \"02\",\r\n            \"remarks\": \"\"\r\n        },\r\n        \"department\": {\r\n            \"description\": \"信息管理\",\r\n            \"id\": 9,\r\n            \"no\": \"01\",\r\n            \"remarks\": \"\",\r\n            \"school\": {\r\n                \"description\": \"管理\",\r\n                \"id\": 6,\r\n                \"no\": \"01\",\r\n                \"remarks\": \"TheBest\"\r\n            }\r\n        },\r\n        \"name\": \"新教师\",\r\n        \"title\": {\r\n            \"description\": \"教授\",\r\n            \"id\": 3,\r\n            \"no\": \"01\",\r\n            \"remarks\": \"\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/teacher.ctl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teacher.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Teacher update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "25673990-47dd-473a-b28e-08ba9dff5abb",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"update response\"] = jsonData.message ===\"修改成功\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"degree\": {\r\n            \"description\": \"博士\",\r\n            \"id\": 490,\r\n            \"no\": \"02\",\r\n            \"remarks\": \"\"\r\n        },\r\n        \"department\": {\r\n            \"description\": \"信息管理\",\r\n            \"id\": 13,\r\n            \"no\": \"01\",\r\n            \"remarks\": \"\",\r\n            \"school\": {\r\n                \"description\": \"管理\",\r\n                \"id\": 6,\r\n                \"no\": \"01\",\r\n                \"remarks\": \"TheBest\"\r\n            }\r\n        },\r\n        \"id\": 6,\r\n        \"name\": \"刘峰\",\r\n        \"title\": {\r\n            \"description\": \"教授\",\r\n            \"id\": 3,\r\n            \"no\": \"01\",\r\n            \"remarks\": \"\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/teacher.ctl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teacher.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Teacher delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cbf9d58b-90ed-497c-b978-c43c7ee8093e",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"删除成功？\"] = jsonData.message ===\"删除成功\""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/teacher.ctl?id=6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"teacher.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
