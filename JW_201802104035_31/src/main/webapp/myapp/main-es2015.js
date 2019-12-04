@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<header>\n  <h1>毕业设计管理系统demo版</h1><hr width=\"80%\"><br>\n</header>\n<div>\n  <nav>\n    <a routerLink='/college' >院系管理</a>\n    <a routerLink='/department' >专业管理</a>\n    <a routerLink='/degree'>学位管理</a>\n    <a routerLink='/title'>职称管理</a>\n    <a routerLink='/teacher'>教师管理</a>\n  </nav>\n  <section><router-outlet></router-outlet></section>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- 登录 -->\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>\n");
 
 /***/ }),
 
@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<a routerLink=\"/addCollege\"><button > 添加学院</button></a>\n<table class=\"tablelist\">\n  <tr><th>序号</th><th>编号</th><th>学院名称</th><th>备注</th><th>操作</th></tr>\n  <tr *ngFor=\"let college of colleges\" class=\"badge\">\n    <td>{{college.id}}</td>\n    <td>{{college.no}}</td>\n    <td>{{college.description}}</td>\n    <td>{{college.remarks}}</td>\n    <td> <a routerLink=\"/updateCollege/{{college.id}}\"><button>修改</button></a>\n      <button (click)=\"delete(college)\">删除</button></td>\n  </tr>\n</table>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<a routerLink=\"/index/addCollege\"><button > 添加学院</button></a>\n<table class=\"tablelist\">\n  <tr><th>序号</th><th>编号</th><th>学院名称</th><th>备注</th><th>操作</th></tr>\n  <tr *ngFor=\"let college of colleges\" class=\"badge\">\n    <td>{{college.id}}</td>\n    <td>{{college.no}}</td>\n    <td>{{college.description}}</td>\n    <td>{{college.remarks}}</td>\n    <td> <a routerLink=\"/index/updateCollege/{{college.id}}\"><button>修改</button></a>\n      <button (click)=\"delete(college)\">删除</button></td>\n  </tr>\n</table>\n\n");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<a routerLink=\"/addDegree\"><button > 添加学位</button></a>\n<table class=\"tablelist\">\n  <tr><th>序号</th><th>编号</th><th>学位名称</th><th>备注</th><th>操作</th></tr>\n  <tr *ngFor=\"let degree of degrees\" class=\"badge\">\n    <td>{{degree.id}}</td>\n    <td>{{degree.no}}</td>\n    <td>{{degree.description}}</td>\n    <td>{{degree.remarks}}</td>\n    <td> <a routerLink=\"/updateDegree/{{degree.id}}\"><button>修改</button></a>\n      <button (click)=\"delete(degree)\">删除</button></td>\n  </tr>\n</table>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<a routerLink=\"/index/addDegree\"><button > 添加学位</button></a>\n<table class=\"tablelist\">\n  <tr><th>序号</th><th>编号</th><th>学位名称</th><th>备注</th><th>操作</th></tr>\n  <tr *ngFor=\"let degree of degrees\" class=\"badge\">\n    <td>{{degree.id}}</td>\n    <td>{{degree.no}}</td>\n    <td>{{degree.description}}</td>\n    <td>{{degree.remarks}}</td>\n    <td> <a routerLink=\"/index/updateDegree/{{degree.id}}\"><button>修改</button></a>\n      <button (click)=\"delete(degree)\">删除</button></td>\n  </tr>\n</table>\n");
 
 /***/ }),
 
@@ -136,7 +136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<a routerLink=\"/addDep\"><button > 添加专业</button></a>\n<table class=\"tablelist\">\n  <tr><th>序号</th><th>编号</th><th>专业名称</th><th>所属学院</th><th>备注</th><th>操作</th></tr>\n  <tr *ngFor=\"let department of departments\" class=\"badge\">\n    <td>{{department.id}}</td>\n    <td>{{department.no}}</td>\n    <td>{{department.description}}</td>\n    <td><label *ngIf=\"department.school\"> {{department.school.description}}</label></td>\n    <td>{{department.remarks}}</td>\n    <td> <a routerLink=\"/updateDep/{{department.id}}\"><button>修改</button></a><button (click)=\"delete(department)\">删除</button></td>\n  </tr>\n</table>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<a routerLink=\"/index/addDep\"><button > 添加专业</button></a>\n<table class=\"tablelist\">\n  <tr><th>序号</th><th>编号</th><th>专业名称</th><th>所属学院</th><th>备注</th><th>操作</th></tr>\n  <tr *ngFor=\"let department of departments\" class=\"badge\">\n    <td>{{department.id}}</td>\n    <td>{{department.no}}</td>\n    <td>{{department.description}}</td>\n    <td><label *ngIf=\"department.school\"> {{department.school.description}}</label></td>\n    <td>{{department.remarks}}</td>\n    <td> <a routerLink=\"/index/updateDep/{{department.id}}\"><button>修改</button></a><button (click)=\"delete(department)\">删除</button></td>\n  </tr>\n</table>\n\n");
 
 /***/ }),
 
@@ -150,6 +150,32 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("<div *ngIf=\"department\">\n  <h2>修改专业</h2>\n  <label>专业编号:</label> <input  [(ngModel)]=\"department.no\" /><br>\n  <label>专业名称:</label> <input [(ngModel)]=\"department.description\" /><br>\n  <label>所属学院:</label>  <!--   ngModel用于将文本框与变量进行双向绑定。ngValue支持对象，value仅支持字符串-->\n  <select [(ngModel)]=\"department.school\" [compareWith]=\"compareFn\">\n    <option *ngFor=\"let school of colleges\" [ngValue]=\"school\">{{school.description}}</option>\n  </select><br>\n  <label class=\"remark\">备 注:</label> <textarea [(ngModel)]=\"department.remarks\" ></textarea>\n</div>\n<button (click)=\"goBack()\">返回</button>\n<button (click)=\"save()\">保存</button>\n\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/index/index.component.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/index/index.component.html ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<header>\n  <h1>毕业设计管理系统demo版</h1>\n</header>\n<nav>\n  <a routerLink='/index/college' >院系管理</a>\n  <a routerLink='/index/department' >专业管理</a>\n  <a routerLink='/index/degree'>学位管理</a>\n  <a routerLink='/index/title'>职称管理</a>\n  <a routerLink='/index/teacher'>教师管理</a>\n</nav>\n<section><router-outlet></router-outlet></section>\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/login/Login.component.html":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/login/Login.component.html ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"bg\">\n  <div class=\"wel\">毕业设计管理系统</div>\n  <div class=\"user\">\n    <div class=\"inuser\">用户名</div>\n    <input type=\"text\" name=\"用户\" value=\"admin\" #uName>\n  </div>\n  <div class=\"password\">\n    <div class=\"inuser\">密&nbsp;&nbsp;&nbsp;码</div>\n    <input class=\"\" type=\"password\" name=\"密码\" value=\"123456\" #uPassword>\n  </div>\n  <div class=\"rem\">\n    <input type=\"checkbox\" name=\"\" id=\"\" value=\"\">\n    <div class=\"reb\">\n      记住密码\n    </div>\n  </div>\n  <div class=\"fg\">\n    <div >\n      <a href=\"\">忘记密码？</a>\n    </div>\n  </div>\n  <button (click)=\"login(uName.value, uPassword.value)\">登录</button>\n</div>\n\n");
 
 /***/ }),
 
@@ -175,7 +201,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<a routerLink=\"/addTeacher\"><button > 添加老师</button></a>\n<table class=\"tablelist\">\n  <tr><th>序号</th><th>编号</th><th>教师姓名</th><th>职称</th><th>最高学位</th><th>所在专业</th><th>操作</th></tr>\n  <tr *ngFor=\"let teacher of teachers\" class=\"badge\">\n    <td>{{teacher.id}}</td>\n    <td>{{teacher.no}}</td>\n    <td>{{teacher.name}}</td>\n    <td><label *ngIf=\"teacher.title\"> {{teacher.title.description}}</label></td>\n    <td><label *ngIf=\"teacher.degree\"> {{teacher.degree.description}}</label></td>\n    <td><label *ngIf=\"teacher.department\"> {{teacher.department.description}}</label></td>\n    <td> <a routerLink=\"/updateTeacher/{{teacher.id}}\"><button>修改</button></a><button (click)=\"delete(teacher)\">删除</button></td>\n  </tr>\n</table>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<a routerLink=\"/index/addTeacher\"><button > 添加老师</button></a>\n<table class=\"tablelist\">\n  <tr><th>序号</th><th>编号</th><th>教师姓名</th><th>职称</th><th>最高学位</th><th>所在专业</th><th>操作</th></tr>\n  <tr *ngFor=\"let teacher of teachers\" class=\"badge\">\n    <td>{{teacher.id}}</td>\n    <td>{{teacher.no}}</td>\n    <td>{{teacher.name}}</td>\n    <td><label *ngIf=\"teacher.title\"> {{teacher.title.description}}</label></td>\n    <td><label *ngIf=\"teacher.degree\"> {{teacher.degree.description}}</label></td>\n    <td><label *ngIf=\"teacher.department\"> {{teacher.department.description}}</label></td>\n    <td> <a routerLink=\"/index/updateTeacher/{{teacher.id}}\"><button>修改</button></a><button (click)=\"delete(teacher)\">删除</button></td>\n  </tr>\n</table>\n\n");
 
 /***/ }),
 
@@ -488,6 +514,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _title_title_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./title/title.component */ "./src/app/title/title.component.ts");
 /* harmony import */ var _title_update_title_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./title/update-title.component */ "./src/app/title/update-title.component.ts");
 /* harmony import */ var _degree_update_degree_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./degree/update-degree.component */ "./src/app/degree/update-degree.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _index_index_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./index/index.component */ "./src/app/index/index.component.ts");
+
+
 
 
 
@@ -507,22 +537,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', redirectTo: '/college', pathMatch: 'full' },
-    { path: 'college', component: _college_college_component__WEBPACK_IMPORTED_MODULE_5__["CollegeComponent"] },
-    { path: 'department', component: _department_department_component__WEBPACK_IMPORTED_MODULE_7__["DepartmentComponent"] },
-    { path: 'teacher', component: _teacher_teacher_component__WEBPACK_IMPORTED_MODULE_6__["TeacherComponent"] },
-    { path: 'degree', component: _degree_degree_component__WEBPACK_IMPORTED_MODULE_14__["DegreeComponent"] },
-    { path: 'title', component: _title_title_component__WEBPACK_IMPORTED_MODULE_15__["TitleComponent"] },
-    { path: 'addCollege', component: _college_add_college_component__WEBPACK_IMPORTED_MODULE_3__["AddCollegeComponent"] },
-    { path: 'updateCollege/:id', component: _college_update_college_component__WEBPACK_IMPORTED_MODULE_4__["UpdateCollegeComponent"] },
-    { path: 'updateDegree/:id', component: _degree_update_degree_component__WEBPACK_IMPORTED_MODULE_17__["UpdateDegreeComponent"] },
-    { path: 'updateTitle/:id', component: _title_update_title_component__WEBPACK_IMPORTED_MODULE_16__["UpdateTitleComponent"] },
-    { path: 'addDep', component: _department_add_dep_component__WEBPACK_IMPORTED_MODULE_8__["AddDepComponent"] },
-    { path: 'updateDep/:id', component: _department_update_dep_component__WEBPACK_IMPORTED_MODULE_9__["UpdateDepComponent"] },
-    { path: 'addTeacher', component: _teacher_add_teacher_component__WEBPACK_IMPORTED_MODULE_10__["AddTeacherComponent"] },
-    { path: 'addDegree', component: _degree_add_degree_component__WEBPACK_IMPORTED_MODULE_12__["AddDegreeComponent"] },
-    { path: 'addTitle', component: _title_add_title_component__WEBPACK_IMPORTED_MODULE_13__["AddTitleComponent"] },
-    { path: 'updateTeacher/:id', component: _teacher_update_teacher_component__WEBPACK_IMPORTED_MODULE_11__["UpdateTeacherComponent"] }
+    { path: '', component: _login_login_component__WEBPACK_IMPORTED_MODULE_18__["LoginComponent"], pathMatch: 'full' },
+    {
+        path: 'index', component: _index_index_component__WEBPACK_IMPORTED_MODULE_19__["IndexComponent"], children: [
+            { path: '', redirectTo: '/college', pathMatch: 'full' },
+            { path: 'college', component: _college_college_component__WEBPACK_IMPORTED_MODULE_5__["CollegeComponent"] },
+            { path: 'department', component: _department_department_component__WEBPACK_IMPORTED_MODULE_7__["DepartmentComponent"] },
+            { path: 'teacher', component: _teacher_teacher_component__WEBPACK_IMPORTED_MODULE_6__["TeacherComponent"] },
+            { path: 'degree', component: _degree_degree_component__WEBPACK_IMPORTED_MODULE_14__["DegreeComponent"] },
+            { path: 'title', component: _title_title_component__WEBPACK_IMPORTED_MODULE_15__["TitleComponent"] },
+            { path: 'addCollege', component: _college_add_college_component__WEBPACK_IMPORTED_MODULE_3__["AddCollegeComponent"] },
+            { path: 'updateCollege/:id', component: _college_update_college_component__WEBPACK_IMPORTED_MODULE_4__["UpdateCollegeComponent"] },
+            { path: 'updateDegree/:id', component: _degree_update_degree_component__WEBPACK_IMPORTED_MODULE_17__["UpdateDegreeComponent"] },
+            { path: 'updateTitle/:id', component: _title_update_title_component__WEBPACK_IMPORTED_MODULE_16__["UpdateTitleComponent"] },
+            { path: 'addDep', component: _department_add_dep_component__WEBPACK_IMPORTED_MODULE_8__["AddDepComponent"] },
+            { path: 'updateDep/:id', component: _department_update_dep_component__WEBPACK_IMPORTED_MODULE_9__["UpdateDepComponent"] },
+            { path: 'addTeacher', component: _teacher_add_teacher_component__WEBPACK_IMPORTED_MODULE_10__["AddTeacherComponent"] },
+            { path: 'addDegree', component: _degree_add_degree_component__WEBPACK_IMPORTED_MODULE_12__["AddDegreeComponent"] },
+            { path: 'addTitle', component: _title_add_title_component__WEBPACK_IMPORTED_MODULE_13__["AddTitleComponent"] },
+            { path: 'updateTeacher/:id', component: _teacher_update_teacher_component__WEBPACK_IMPORTED_MODULE_11__["UpdateTeacherComponent"] }
+        ]
+    },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -546,7 +581,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/* AppComponent's private CSS styles */\r\nh1 {\r\n  font-size: 1.2em;\r\n  margin-bottom: 0;\r\n}\r\nh2 {\r\n  font-size: 2em;\r\n  margin-top: 0;\r\n  padding-top: 0;\r\n}\r\nheader{border-bottom:solid 3px #eeeeff;\r\n  text-align:center; background-color:#fefeff}\r\nnav{width:200px; height:500px;\r\n  border-right:solid 3px #eeeeff;\r\n  float:left; }\r\nsection{float:left; width:70%;\r\n  padding-left:20px; padding-top:10px;}\r\nnav a {\r\n  padding: 5px 10px;\r\n  text-decoration: none;\r\n  margin: 10px;\r\n  display: block;\r\n  background-color: #eee;\r\n  border-radius: 4px;\r\n}\r\nnav a:visited, a:link {\r\n  color: #334953;\r\n}\r\nnav a:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\nnav a.active {\r\n  color: #039be5;\r\n}\r\na,input{ margin-right:10px;}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsc0NBQXNDO0FBQ3RDO0VBQ0UsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGFBQWE7RUFDYixjQUFjO0FBQ2hCO0FBQ0EsT0FBTywrQkFBK0I7RUFDcEMsaUJBQWlCLEVBQUUsd0JBQXdCO0FBQzdDLElBQUksV0FBVyxFQUFFLFlBQVk7RUFDM0IsOEJBQThCO0VBQzlCLFVBQVUsRUFBRTtBQUNkLFFBQVEsVUFBVSxFQUFFLFNBQVM7RUFDM0IsaUJBQWlCLEVBQUUsZ0JBQWdCLENBQUM7QUFDdEM7RUFDRSxpQkFBaUI7RUFDakIscUJBQXFCO0VBQ3JCLFlBQVk7RUFDWixjQUFjO0VBQ2Qsc0JBQXNCO0VBQ3RCLGtCQUFrQjtBQUNwQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBO0VBQ0UsY0FBYztFQUNkLHlCQUF5QjtBQUMzQjtBQUNBO0VBQ0UsY0FBYztBQUNoQjtBQUNBLFNBQVMsaUJBQWlCLENBQUMiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qIEFwcENvbXBvbmVudCdzIHByaXZhdGUgQ1NTIHN0eWxlcyAqL1xyXG5oMSB7XHJcbiAgZm9udC1zaXplOiAxLjJlbTtcclxuICBtYXJnaW4tYm90dG9tOiAwO1xyXG59XHJcbmgyIHtcclxuICBmb250LXNpemU6IDJlbTtcclxuICBtYXJnaW4tdG9wOiAwO1xyXG4gIHBhZGRpbmctdG9wOiAwO1xyXG59XHJcbmhlYWRlcntib3JkZXItYm90dG9tOnNvbGlkIDNweCAjZWVlZWZmO1xyXG4gIHRleHQtYWxpZ246Y2VudGVyOyBiYWNrZ3JvdW5kLWNvbG9yOiNmZWZlZmZ9XHJcbm5hdnt3aWR0aDoyMDBweDsgaGVpZ2h0OjUwMHB4O1xyXG4gIGJvcmRlci1yaWdodDpzb2xpZCAzcHggI2VlZWVmZjtcclxuICBmbG9hdDpsZWZ0OyB9XHJcbnNlY3Rpb257ZmxvYXQ6bGVmdDsgd2lkdGg6NzAlO1xyXG4gIHBhZGRpbmctbGVmdDoyMHB4OyBwYWRkaW5nLXRvcDoxMHB4O31cclxubmF2IGEge1xyXG4gIHBhZGRpbmc6IDVweCAxMHB4O1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICBtYXJnaW46IDEwcHg7XHJcbiAgZGlzcGxheTogYmxvY2s7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2VlZTtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbn1cclxubmF2IGE6dmlzaXRlZCwgYTpsaW5rIHtcclxuICBjb2xvcjogIzMzNDk1MztcclxufVxyXG5uYXYgYTpob3ZlciB7XHJcbiAgY29sb3I6ICMwMzliZTU7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI0NGRDhEQztcclxufVxyXG5uYXYgYS5hY3RpdmUge1xyXG4gIGNvbG9yOiAjMDM5YmU1O1xyXG59XHJcbmEsaW5wdXR7IG1hcmdpbi1yaWdodDoxMHB4O31cclxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("/* AppComponent's private CSS styles */\r\nh1 {\r\n  font-size: 1.2em;\r\n  margin-bottom: 0;\r\n}\r\nh2 {\r\n  font-size: 2em;\r\n  margin-top: 0;\r\n  padding-top: 0;\r\n}\r\nheader{\r\n  position: fixed;\r\n  border-bottom:solid 3px #eeeeff;\r\n  text-align:center;\r\n  background-color:#fefeff;\r\n  height:100px;\r\n}\r\nnav{\r\n  position: fixed;\r\n  width:200px; height:500px;\r\n  border-right:solid 3px #eeeeff;\r\n  float:left; }\r\nsection{\r\n  position: absolute;\r\n  top: 70px;\r\n  left: 200px;\r\n  padding-left:20px;\r\n  padding-top:10px;}\r\nnav a {\r\n  padding: 5px 10px;\r\n  text-decoration: none;\r\n  margin: 10px;\r\n  display: block;\r\n  background-color: #eee;\r\n  border-radius: 4px;\r\n}\r\nnav a:visited, a:link {\r\n  color: #334953;\r\n}\r\nnav a:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\nnav a.active {\r\n  color: #039be5;\r\n}\r\na,input{ margin-right:10px;}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsc0NBQXNDO0FBQ3RDO0VBQ0UsZ0JBQWdCO0VBQ2hCLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0UsY0FBYztFQUNkLGFBQWE7RUFDYixjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsK0JBQStCO0VBQy9CLGlCQUFpQjtFQUNqQix3QkFBd0I7RUFDeEIsWUFBWTtBQUNkO0FBQ0E7RUFDRSxlQUFlO0VBQ2YsV0FBVyxFQUFFLFlBQVk7RUFDekIsOEJBQThCO0VBQzlCLFVBQVUsRUFBRTtBQUNkO0VBQ0Usa0JBQWtCO0VBQ2xCLFNBQVM7RUFDVCxXQUFXO0VBQ1gsaUJBQWlCO0VBQ2pCLGdCQUFnQixDQUFDO0FBQ25CO0VBQ0UsaUJBQWlCO0VBQ2pCLHFCQUFxQjtFQUNyQixZQUFZO0VBQ1osY0FBYztFQUNkLHNCQUFzQjtFQUN0QixrQkFBa0I7QUFDcEI7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQTtFQUNFLGNBQWM7RUFDZCx5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLGNBQWM7QUFDaEI7QUFDQSxTQUFTLGlCQUFpQixDQUFDIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBBcHBDb21wb25lbnQncyBwcml2YXRlIENTUyBzdHlsZXMgKi9cclxuaDEge1xyXG4gIGZvbnQtc2l6ZTogMS4yZW07XHJcbiAgbWFyZ2luLWJvdHRvbTogMDtcclxufVxyXG5oMiB7XHJcbiAgZm9udC1zaXplOiAyZW07XHJcbiAgbWFyZ2luLXRvcDogMDtcclxuICBwYWRkaW5nLXRvcDogMDtcclxufVxyXG5oZWFkZXJ7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIGJvcmRlci1ib3R0b206c29saWQgM3B4ICNlZWVlZmY7XHJcbiAgdGV4dC1hbGlnbjpjZW50ZXI7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjojZmVmZWZmO1xyXG4gIGhlaWdodDoxMDBweDtcclxufVxyXG5uYXZ7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHdpZHRoOjIwMHB4OyBoZWlnaHQ6NTAwcHg7XHJcbiAgYm9yZGVyLXJpZ2h0OnNvbGlkIDNweCAjZWVlZWZmO1xyXG4gIGZsb2F0OmxlZnQ7IH1cclxuc2VjdGlvbntcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiA3MHB4O1xyXG4gIGxlZnQ6IDIwMHB4O1xyXG4gIHBhZGRpbmctbGVmdDoyMHB4O1xyXG4gIHBhZGRpbmctdG9wOjEwcHg7fVxyXG5uYXYgYSB7XHJcbiAgcGFkZGluZzogNXB4IDEwcHg7XHJcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gIG1hcmdpbjogMTBweDtcclxuICBkaXNwbGF5OiBibG9jaztcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZWVlO1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxufVxyXG5uYXYgYTp2aXNpdGVkLCBhOmxpbmsge1xyXG4gIGNvbG9yOiAjMzM0OTUzO1xyXG59XHJcbm5hdiBhOmhvdmVyIHtcclxuICBjb2xvcjogIzAzOWJlNTtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjQ0ZEOERDO1xyXG59XHJcbm5hdiBhLmFjdGl2ZSB7XHJcbiAgY29sb3I6ICMwMzliZTU7XHJcbn1cclxuYSxpbnB1dHsgbWFyZ2luLXJpZ2h0OjEwcHg7fVxyXG4iXX0= */");
 
 /***/ }),
 
@@ -565,9 +600,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor() {
-        this.title = '教务系统demo';
-    }
 };
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -614,6 +646,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _degree_update_degree_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./degree/update-degree.component */ "./src/app/degree/update-degree.component.ts");
 /* harmony import */ var _title_add_title_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./title/add-title.component */ "./src/app/title/add-title.component.ts");
 /* harmony import */ var _title_update_title_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./title/update-title.component */ "./src/app/title/update-title.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _index_index_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./index/index.component */ "./src/app/index/index.component.ts");
+
+
 
 
 
@@ -657,7 +693,9 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _degree_add_degree_component__WEBPACK_IMPORTED_MODULE_19__["AddDegreeComponent"],
             _degree_update_degree_component__WEBPACK_IMPORTED_MODULE_20__["UpdateDegreeComponent"],
             _title_add_title_component__WEBPACK_IMPORTED_MODULE_21__["AddTitleComponent"],
-            _title_update_title_component__WEBPACK_IMPORTED_MODULE_22__["UpdateTitleComponent"]
+            _title_update_title_component__WEBPACK_IMPORTED_MODULE_22__["UpdateTitleComponent"],
+            _login_login_component__WEBPACK_IMPORTED_MODULE_23__["LoginComponent"],
+            _index_index_component__WEBPACK_IMPORTED_MODULE_24__["IndexComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -1275,6 +1313,112 @@ UpdateDepComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./update-dep.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/department/update-dep.component.html")).default,
     })
 ], UpdateDepComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/index/index.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/index/index.component.css ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/* AppComponent's private CSS styles */\r\nh1 {\r\n  font-size: 1.2em;\r\n  margin-bottom: 0;\r\n  color: #2d456b;\r\n}\r\nheader{\r\n  position: fixed;\r\n  top:0; left:0;\r\n  border-bottom:solid 3px #eeeeff;\r\n  text-align:center;\r\n  background: linear-gradient(to bottom,  #e7f0fd 0%, #accbee 15%, #e7f0fd 85%,#fff 100%);\r\n  height:60px;\r\n  width: 100%;\r\n  padding-top:5px;\r\n}\r\nnav{\r\n  position: fixed;\r\n  top: 68px;left:0;\r\n  width:200px; height:100%;\r\n  border-right:solid 3px #eeeeff;\r\n}\r\nsection{\r\n  position: absolute;\r\n  top: 68px;\r\n  left: 200px;\r\n  width: 80%;\r\n  padding-left:20px;\r\n  padding-top:10px;\r\n}\r\nnav a {\r\n  padding: 5px 10px;\r\n  text-decoration: none;\r\n  margin: 10px;\r\n  display: block;\r\n  background-color: #eee;\r\n  border-radius: 4px;\r\n}\r\nnav a:visited, a:link {\r\n  color: #334953;\r\n}\r\nnav a:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\nnav a.active {\r\n  color: #039be5;\r\n}\r\nnav a,input{ margin-right:10px;}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaW5kZXgvaW5kZXguY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxzQ0FBc0M7QUFDdEM7RUFDRSxnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLGNBQWM7QUFDaEI7QUFDQTtFQUNFLGVBQWU7RUFDZixLQUFLLEVBQUUsTUFBTTtFQUNiLCtCQUErQjtFQUMvQixpQkFBaUI7RUFDakIsdUZBQXVGO0VBQ3ZGLFdBQVc7RUFDWCxXQUFXO0VBQ1gsZUFBZTtBQUNqQjtBQUVBO0VBQ0UsZUFBZTtFQUNmLFNBQVMsQ0FBQyxNQUFNO0VBQ2hCLFdBQVcsRUFBRSxXQUFXO0VBQ3hCLDhCQUE4QjtBQUNoQztBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFNBQVM7RUFDVCxXQUFXO0VBQ1gsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQixnQkFBZ0I7QUFDbEI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixxQkFBcUI7RUFDckIsWUFBWTtFQUNaLGNBQWM7RUFDZCxzQkFBc0I7RUFDdEIsa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0E7RUFDRSxjQUFjO0VBQ2QseUJBQXlCO0FBQzNCO0FBQ0E7RUFDRSxjQUFjO0FBQ2hCO0FBQ0EsYUFBYSxpQkFBaUIsQ0FBQyIsImZpbGUiOiJzcmMvYXBwL2luZGV4L2luZGV4LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBBcHBDb21wb25lbnQncyBwcml2YXRlIENTUyBzdHlsZXMgKi9cclxuaDEge1xyXG4gIGZvbnQtc2l6ZTogMS4yZW07XHJcbiAgbWFyZ2luLWJvdHRvbTogMDtcclxuICBjb2xvcjogIzJkNDU2YjtcclxufVxyXG5oZWFkZXJ7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHRvcDowOyBsZWZ0OjA7XHJcbiAgYm9yZGVyLWJvdHRvbTpzb2xpZCAzcHggI2VlZWVmZjtcclxuICB0ZXh0LWFsaWduOmNlbnRlcjtcclxuICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQodG8gYm90dG9tLCAgI2U3ZjBmZCAwJSwgI2FjY2JlZSAxNSUsICNlN2YwZmQgODUlLCNmZmYgMTAwJSk7XHJcbiAgaGVpZ2h0OjYwcHg7XHJcbiAgd2lkdGg6IDEwMCU7XHJcbiAgcGFkZGluZy10b3A6NXB4O1xyXG59XHJcblxyXG5uYXZ7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIHRvcDogNjhweDtsZWZ0OjA7XHJcbiAgd2lkdGg6MjAwcHg7IGhlaWdodDoxMDAlO1xyXG4gIGJvcmRlci1yaWdodDpzb2xpZCAzcHggI2VlZWVmZjtcclxufVxyXG5zZWN0aW9ue1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB0b3A6IDY4cHg7XHJcbiAgbGVmdDogMjAwcHg7XHJcbiAgd2lkdGg6IDgwJTtcclxuICBwYWRkaW5nLWxlZnQ6MjBweDtcclxuICBwYWRkaW5nLXRvcDoxMHB4O1xyXG59XHJcbm5hdiBhIHtcclxuICBwYWRkaW5nOiA1cHggMTBweDtcclxuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgbWFyZ2luOiAxMHB4O1xyXG4gIGRpc3BsYXk6IGJsb2NrO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNlZWU7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG59XHJcbm5hdiBhOnZpc2l0ZWQsIGE6bGluayB7XHJcbiAgY29sb3I6ICMzMzQ5NTM7XHJcbn1cclxubmF2IGE6aG92ZXIge1xyXG4gIGNvbG9yOiAjMDM5YmU1O1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNDRkQ4REM7XHJcbn1cclxubmF2IGEuYWN0aXZlIHtcclxuICBjb2xvcjogIzAzOWJlNTtcclxufVxyXG5uYXYgYSxpbnB1dHsgbWFyZ2luLXJpZ2h0OjEwcHg7fVxyXG4iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/index/index.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/index/index.component.ts ***!
+  \******************************************/
+/*! exports provided: IndexComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IndexComponent", function() { return IndexComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let IndexComponent = class IndexComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+IndexComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-index',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./index.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/index/index.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./index.component.css */ "./src/app/index/index.component.css")).default]
+    })
+], IndexComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/login/Login.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/login/Login.component.css ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n*{\r\n  font-family: \"微软雅黑\", serif;\r\n  font-size: 16px;\r\n  border: 0;\r\n  color: #666;\r\n  box-sizing:border-box;\r\n  -moz-box-sizing:border-box;\r\n  -webkit-box-sizing:border-box;\r\n}\r\n.bg{\r\n  width: 415px;\r\n  height: 337px;\r\n  background: #eef;\r\n  position:absolute;\r\n  left:0;\r\n  top:0;\r\n  right:0;\r\n  bottom:0;\r\n  margin:auto;\r\n  z-index: 1;\r\n  box-shadow:0 0 30px rgba(0, 0, 0, 0.4);\r\n  border-radius: 15px;\r\n}\r\n.password{\r\n  position: absolute;\r\n  top: 9.5rem;\r\n  right: 3.5rem;\r\n  display: flex;\r\n}\r\nbutton{\r\n  position: absolute;\r\n  top: 16rem;\r\n  right: 3.5rem;\r\n  border: none;\r\n  color: #fff;\r\n  width: 18.825rem;\r\n  text-align: center;\r\n  background-color: #2D456B;\r\n  line-height: 40px;\r\n}\r\n.img{\r\n  width: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  right: 0;\r\n  margin: 0 auto;\r\n  z-index: -1;\r\n}\r\n.wel{\r\n  width: 415px;\r\n  height: 35px;\r\n  color: #2d456b;\r\n  font-size: 1.5rem;\r\n  position: absolute;\r\n  top: 2rem;\r\n  text-align: center;\r\n}\r\ninput{\r\n  border-bottom:0.0625rem solid #2D456B;\r\n  height: 2.5625rem;\r\n  width: 15.8125rem;\r\n  text-indent: 3.125rem;\r\n  outline:none;\r\n  background-color: #eef;\r\n}\r\n.user{\r\n  position: absolute;\r\n  top: 6rem;\r\n  right: 3.5rem;\r\n  display: flex;\r\n\r\n}\r\n.rem{\r\n  position: absolute;\r\n  top: 12.5rem;\r\n  right: 18.2rem;\r\n  border: none;\r\n  color: #323333;\r\n}\r\n.rem input{\r\n  width: 0.8125rem;\r\n}\r\n.fg{\r\n  position: absolute;\r\n  top: 12.5rem;\r\n  right: 3.5rem;\r\n  border: none;\r\n  color: #323333;\r\n}\r\n.inuser{\r\n  border-bottom:1px solid #2D456B;\r\n  height: 41px;\r\n  line-height: 41px;\r\n}\r\n.reb{\r\n  margin-top: -33px;\r\n  margin-left: 20px;\r\n  font-size: 11px;\r\n}\r\n@media (min-width:800px) and (max-width:1200px)\r\n\r\n{\r\n  .bg{\r\n    width: 355px;\r\n    height: 300px;\r\n  }\r\n  .wel{\r\n    width: 355px;\r\n  }\r\n  .user{\r\n    top: 5rem;\r\n    right: 3.5rem;\r\n  }\r\n  .password{\r\n    top: 8rem;\r\n    right: 3.5rem;\r\n  }\r\n  input{\r\n\r\n    width: 12rem;\r\n  }\r\n  .rem{\r\n    top: 11rem;\r\n    right: 14.3rem;\r\n  }\r\n  .fg{\r\n    top: 11rem;\r\n    right: 3.5rem;\r\n  }\r\n  button{\r\n    top: 14rem;\r\n    width: 15rem;\r\n  }\r\n\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vTG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0E7RUFDRSwwQkFBMEI7RUFDMUIsZUFBZTtFQUNmLFNBQVM7RUFDVCxXQUFXO0VBQ1gscUJBQXFCO0VBQ3JCLDBCQUEwQjtFQUMxQiw2QkFBNkI7QUFDL0I7QUFDQTtFQUNFLFlBQVk7RUFDWixhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixNQUFNO0VBQ04sS0FBSztFQUNMLE9BQU87RUFDUCxRQUFRO0VBQ1IsV0FBVztFQUNYLFVBQVU7RUFDVixzQ0FBc0M7RUFDdEMsbUJBQW1CO0FBQ3JCO0FBQ0E7RUFDRSxrQkFBa0I7RUFDbEIsV0FBVztFQUNYLGFBQWE7RUFDYixhQUFhO0FBQ2Y7QUFDQTtFQUNFLGtCQUFrQjtFQUNsQixVQUFVO0VBQ1YsYUFBYTtFQUNiLFlBQVk7RUFDWixXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLGtCQUFrQjtFQUNsQix5QkFBeUI7RUFDekIsaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLE9BQU87RUFDUCxRQUFRO0VBQ1IsY0FBYztFQUNkLFdBQVc7QUFDYjtBQUNBO0VBQ0UsWUFBWTtFQUNaLFlBQVk7RUFDWixjQUFjO0VBQ2QsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1Qsa0JBQWtCO0FBQ3BCO0FBQ0E7RUFDRSxxQ0FBcUM7RUFDckMsaUJBQWlCO0VBQ2pCLGlCQUFpQjtFQUNqQixxQkFBcUI7RUFDckIsWUFBWTtFQUNaLHNCQUFzQjtBQUN4QjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFNBQVM7RUFDVCxhQUFhO0VBQ2IsYUFBYTs7QUFFZjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixjQUFjO0VBQ2QsWUFBWTtFQUNaLGNBQWM7QUFDaEI7QUFDQTtFQUNFLGdCQUFnQjtBQUNsQjtBQUNBO0VBQ0Usa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixhQUFhO0VBQ2IsWUFBWTtFQUNaLGNBQWM7QUFDaEI7QUFDQTtFQUNFLCtCQUErQjtFQUMvQixZQUFZO0VBQ1osaUJBQWlCO0FBQ25CO0FBQ0E7RUFDRSxpQkFBaUI7RUFDakIsaUJBQWlCO0VBQ2pCLGVBQWU7QUFDakI7QUFHQTs7O0VBR0U7SUFDRSxZQUFZO0lBQ1osYUFBYTtFQUNmO0VBQ0E7SUFDRSxZQUFZO0VBQ2Q7RUFDQTtJQUNFLFNBQVM7SUFDVCxhQUFhO0VBQ2Y7RUFDQTtJQUNFLFNBQVM7SUFDVCxhQUFhO0VBQ2Y7RUFDQTs7SUFFRSxZQUFZO0VBQ2Q7RUFDQTtJQUNFLFVBQVU7SUFDVixjQUFjO0VBQ2hCO0VBQ0E7SUFDRSxVQUFVO0lBQ1YsYUFBYTtFQUNmO0VBQ0E7SUFDRSxVQUFVO0lBQ1YsWUFBWTtFQUNkOztBQUVGIiwiZmlsZSI6InNyYy9hcHAvbG9naW4vTG9naW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4qe1xyXG4gIGZvbnQtZmFtaWx5OiBcIuW+rui9r+mbhem7kVwiLCBzZXJpZjtcclxuICBmb250LXNpemU6IDE2cHg7XHJcbiAgYm9yZGVyOiAwO1xyXG4gIGNvbG9yOiAjNjY2O1xyXG4gIGJveC1zaXppbmc6Ym9yZGVyLWJveDtcclxuICAtbW96LWJveC1zaXppbmc6Ym9yZGVyLWJveDtcclxuICAtd2Via2l0LWJveC1zaXppbmc6Ym9yZGVyLWJveDtcclxufVxyXG4uYmd7XHJcbiAgd2lkdGg6IDQxNXB4O1xyXG4gIGhlaWdodDogMzM3cHg7XHJcbiAgYmFja2dyb3VuZDogI2VlZjtcclxuICBwb3NpdGlvbjphYnNvbHV0ZTtcclxuICBsZWZ0OjA7XHJcbiAgdG9wOjA7XHJcbiAgcmlnaHQ6MDtcclxuICBib3R0b206MDtcclxuICBtYXJnaW46YXV0bztcclxuICB6LWluZGV4OiAxO1xyXG4gIGJveC1zaGFkb3c6MCAwIDMwcHggcmdiYSgwLCAwLCAwLCAwLjQpO1xyXG4gIGJvcmRlci1yYWRpdXM6IDE1cHg7XHJcbn1cclxuLnBhc3N3b3Jke1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB0b3A6IDkuNXJlbTtcclxuICByaWdodDogMy41cmVtO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuYnV0dG9ue1xyXG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICB0b3A6IDE2cmVtO1xyXG4gIHJpZ2h0OiAzLjVyZW07XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIHdpZHRoOiAxOC44MjVyZW07XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICMyRDQ1NkI7XHJcbiAgbGluZS1oZWlnaHQ6IDQwcHg7XHJcbn1cclxuLmltZ3tcclxuICB3aWR0aDogMTAwJTtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgbGVmdDogMDtcclxuICByaWdodDogMDtcclxuICBtYXJnaW46IDAgYXV0bztcclxuICB6LWluZGV4OiAtMTtcclxufVxyXG4ud2Vse1xyXG4gIHdpZHRoOiA0MTVweDtcclxuICBoZWlnaHQ6IDM1cHg7XHJcbiAgY29sb3I6ICMyZDQ1NmI7XHJcbiAgZm9udC1zaXplOiAxLjVyZW07XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogMnJlbTtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuaW5wdXR7XHJcbiAgYm9yZGVyLWJvdHRvbTowLjA2MjVyZW0gc29saWQgIzJENDU2QjtcclxuICBoZWlnaHQ6IDIuNTYyNXJlbTtcclxuICB3aWR0aDogMTUuODEyNXJlbTtcclxuICB0ZXh0LWluZGVudDogMy4xMjVyZW07XHJcbiAgb3V0bGluZTpub25lO1xyXG4gIGJhY2tncm91bmQtY29sb3I6ICNlZWY7XHJcbn1cclxuLnVzZXJ7XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogNnJlbTtcclxuICByaWdodDogMy41cmVtO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcblxyXG59XHJcbi5yZW17XHJcbiAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gIHRvcDogMTIuNXJlbTtcclxuICByaWdodDogMTguMnJlbTtcclxuICBib3JkZXI6IG5vbmU7XHJcbiAgY29sb3I6ICMzMjMzMzM7XHJcbn1cclxuLnJlbSBpbnB1dHtcclxuICB3aWR0aDogMC44MTI1cmVtO1xyXG59XHJcbi5mZ3tcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgdG9wOiAxMi41cmVtO1xyXG4gIHJpZ2h0OiAzLjVyZW07XHJcbiAgYm9yZGVyOiBub25lO1xyXG4gIGNvbG9yOiAjMzIzMzMzO1xyXG59XHJcbi5pbnVzZXJ7XHJcbiAgYm9yZGVyLWJvdHRvbToxcHggc29saWQgIzJENDU2QjtcclxuICBoZWlnaHQ6IDQxcHg7XHJcbiAgbGluZS1oZWlnaHQ6IDQxcHg7XHJcbn1cclxuLnJlYntcclxuICBtYXJnaW4tdG9wOiAtMzNweDtcclxuICBtYXJnaW4tbGVmdDogMjBweDtcclxuICBmb250LXNpemU6IDExcHg7XHJcbn1cclxuXHJcblxyXG5AbWVkaWEgKG1pbi13aWR0aDo4MDBweCkgYW5kIChtYXgtd2lkdGg6MTIwMHB4KVxyXG5cclxue1xyXG4gIC5iZ3tcclxuICAgIHdpZHRoOiAzNTVweDtcclxuICAgIGhlaWdodDogMzAwcHg7XHJcbiAgfVxyXG4gIC53ZWx7XHJcbiAgICB3aWR0aDogMzU1cHg7XHJcbiAgfVxyXG4gIC51c2Vye1xyXG4gICAgdG9wOiA1cmVtO1xyXG4gICAgcmlnaHQ6IDMuNXJlbTtcclxuICB9XHJcbiAgLnBhc3N3b3Jke1xyXG4gICAgdG9wOiA4cmVtO1xyXG4gICAgcmlnaHQ6IDMuNXJlbTtcclxuICB9XHJcbiAgaW5wdXR7XHJcblxyXG4gICAgd2lkdGg6IDEycmVtO1xyXG4gIH1cclxuICAucmVte1xyXG4gICAgdG9wOiAxMXJlbTtcclxuICAgIHJpZ2h0OiAxNC4zcmVtO1xyXG4gIH1cclxuICAuZmd7XHJcbiAgICB0b3A6IDExcmVtO1xyXG4gICAgcmlnaHQ6IDMuNXJlbTtcclxuICB9XHJcbiAgYnV0dG9ue1xyXG4gICAgdG9wOiAxNHJlbTtcclxuICAgIHdpZHRoOiAxNXJlbTtcclxuICB9XHJcblxyXG59XHJcbiJdfQ== */");
+
+/***/ }),
+
+/***/ "./src/app/login/login.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/login/login.component.ts ***!
+  \******************************************/
+/*! exports provided: LoginComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+let LoginComponent = class LoginComponent {
+    constructor(router) {
+        this.router = router;
+    }
+    ngOnInit() {
+    }
+    login(un, up) {
+        this.uname = un;
+        this.password = up;
+        if (this.uname === 'admin' && this.password === '123456') {
+            this.router.navigateByUrl('/index/college');
+        }
+        else {
+            alert('用户名或密码错误');
+        }
+    }
+};
+LoginComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] }
+];
+LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        // tslint:disable-next-line:component-selector
+        selector: 'app-Login',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./Login.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/login/Login.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./Login.component.css */ "./src/app/login/Login.component.css")).default]
+    })
+], LoginComponent);
 
 
 
