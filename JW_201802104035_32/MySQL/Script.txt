@@ -1,0 +1,84 @@
+.\mysqld -install -mysql55
+net start mysql55
+
+(net stop mysql55)
+(.\mysqld -remove mysql55)
+
+.\mysql -uroot -p
+
+
+
+create table degree
+(
+    id          bigint auto_increment
+        primary key,
+    description varchar(255) not null,
+    no          varchar(255) not null,
+    remarks     varchar(255) null
+);
+
+
+create table department
+(
+    id          bigint auto_increment
+        primary key,
+    description varchar(255) not null,
+    no          varchar(255) not null,
+    remarks     varchar(255) null,
+    school_id   bigint       not null,
+    constraint department_school_id_fk
+        foreign key (school_id) references school (id)
+);
+
+
+create table proftitle
+(
+    id          bigint auto_increment
+        primary key,
+    description varchar(255) not null,
+    no          varchar(255) null,
+    remarks     varchar(255) null
+);
+
+
+
+create table school
+(
+    id          bigint auto_increment
+        primary key,
+    description varchar(255) not null,
+    no          varchar(255) not null,
+    remarks     varchar(255) null,
+    constraint no
+        unique (no)
+);
+
+
+create table teacher
+(
+    id            bigint auto_increment
+        primary key,
+    no            varchar(255) not null,
+    name          varchar(255) not null,
+    proftitle_id  bigint       not null,
+    degree_id     bigint       null,
+    department_id bigint       not null,
+    constraint teacher_degree_id_fk
+        foreign key (degree_id) references degree (id),
+    constraint teacher_department_id_fk
+        foreign key (department_id) references department (id),
+    constraint teacher_proftitle_id_fk
+        foreign key (proftitle_id) references proftitle (id)
+);
+
+
+create table user
+(
+    id          bigint auto_increment
+        primary key,
+    username varchar(255) not null,
+    password          varchar(255) not null,
+    teacher_id   bigint       not null,
+    constraint department_teacher_id_fk
+        foreign key (teacher_id) references teacher (id)
+);
